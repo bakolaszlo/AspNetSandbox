@@ -51,9 +51,22 @@ namespace AspNetSandbox
             }
 
             app.UseHttpsRedirection();
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
+            
+            DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
+            defaultFilesOptions.DefaultFileNames = new List<string>();
+            defaultFilesOptions.DefaultFileNames.Add("index.html");
 
+            app.UseDefaultFiles(defaultFilesOptions) ;
+
+            //how Borys would do it
+            /*
+            app.UseDefaultFiles(new DefaultFilesOptions
+            {
+                DefaultFileNames = new List<string> { "index.html" }
+            });
+            */
+
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseAuthorization();
