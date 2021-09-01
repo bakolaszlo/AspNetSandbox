@@ -74,10 +74,9 @@
 
         <div class="preFooter">
             <div class="preFooterContent">
-                Google offered in:
-                <a class="preFooterRef" href="">Română</a>
-                <a class="preFooterRef" href="">magyar</a>
-                <a class="preFooterRef" href="">Deutsch</a>
+                <textarea id="weatherForecast">
+                    
+                </textarea>
             </div>
         </div>
 
@@ -109,13 +108,16 @@
 </script>
     <script>
         var settings = {
-            "url": "https://localhost:5001/weatherforecast",
+            "url": "/weatherforecast",
             "method": "GET",
             "timeout": 0,
         };
 
         $.ajax(settings).done(function (response) {
-            console.log(response);
+            //console.log(response);
+            //let textArea = document.querySelectorAll('#weatherForecast');
+            //let textArea = document.getElementById('weatherForecast');
+            $('#weatherForecast').val("The weather for tomorrow should look like this: " + response[0].summary);
         });
     </script>
 </body>
