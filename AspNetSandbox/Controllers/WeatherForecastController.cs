@@ -26,14 +26,11 @@ namespace AspNetSandbox.Controllers
             Console.WriteLine(response.Content);
 
             return ConvertResponseToWeatherForecast(response.Content);
-
         }
 
         public IEnumerable<WeatherForecast> ConvertResponseToWeatherForecast(string content, int amount = 5)
         {
-
             var json = JObject.Parse(content);
-            var rng = new Random();
 
             return Enumerable.Range(1, amount).Select(index =>
             {
