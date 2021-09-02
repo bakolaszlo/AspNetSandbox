@@ -22,7 +22,7 @@ namespace AspNetSandbox.Tests
 
 
             // Assert
-            Assert.Equal("rainy", ((WeatherForecast[])output)[0].Summary);
+            Assert.Equal("Clouds", ((WeatherForecast[])output)[0].Summary);
         }
     }
 }
