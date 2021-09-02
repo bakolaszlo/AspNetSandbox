@@ -52,5 +52,10 @@ namespace AspNetSandbox.Controllers
         {
             return (int)Math.Round((jsonDailyForecast["temp"].Value<float>("day") - KELVIN_CONST));
         }
+
+
+        
     }
+
+    
 }
