@@ -11,7 +11,7 @@ namespace AspNetSandbox.Controllers
 {
     [Route("api/weatherForecastCityCoord")]
     [ApiController]
-    public class WeatherForecastCityCoordController : ControllerBase
+    public class CityCoordController : ControllerBase
     {
        
         [HttpGet]
@@ -24,10 +24,10 @@ namespace AspNetSandbox.Controllers
             IRestResponse response = client.Execute(request);
             Console.WriteLine(response.Content);
 
-            return ConvertCityCoordResponseToWeatherForecast(response.Content);
+            return ConvertCityNameResponseToCityObject(response.Content);
         }
 
-        public CityCoord ConvertCityCoordResponseToWeatherForecast(string content, string cityName="Brasov")
+        public CityCoord ConvertCityNameResponseToCityObject(string content, string cityName="Brasov")
         {
                 
                 var json = JObject.Parse(content);
