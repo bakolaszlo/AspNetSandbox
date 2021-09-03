@@ -18,7 +18,7 @@ namespace AspNetSandbox.Tests
             var controller = new CityCoordController();
 
             // Act
-            var output = controller.ConvertCityNameResponseToCityObject(content,"Brasov");
+            var output = controller.ConvertCityNameResponseToCityObject(content);
 
 
             // Assert
@@ -37,7 +37,7 @@ namespace AspNetSandbox.Tests
             var controller = new CityCoordController();
 
             //Act
-            var output = controller.ConvertCityNameResponseToCityObject(content,"London");
+            var output = controller.ConvertCityNameResponseToCityObject(content);
 
             //Assert
             Assert.Equal("London", output.cityName);
@@ -54,7 +54,7 @@ namespace AspNetSandbox.Tests
             var controller = new CityCoordController();
 
             //Act
-            var output = controller.ConvertCityNameResponseToCityObject(content,"Berlin");
+            var output = controller.ConvertCityNameResponseToCityObject(content);
 
             //Assert
 
