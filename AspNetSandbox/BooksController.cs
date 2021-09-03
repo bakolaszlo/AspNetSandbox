@@ -41,16 +41,12 @@ namespace AspNetSandbox
             return books;
         }
 
-        private bool SomeFunction(Book book)
-        {
-            return book.Id == 1;
-        }
 
         // GET api/<BooksController>/5
         [HttpGet("{id}")]
         public Book Get(int id)
         {
-            return books.Single(SomeFunction);
+            return books.Single(book => book.Id == id);
         }
 
         
