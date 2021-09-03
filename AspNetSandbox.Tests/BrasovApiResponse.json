@@ -1,0 +1,44 @@
+﻿{
+  "coord": {
+    "lon": 25.3333,
+    "lat": 45.75
+  },
+  "weather": [
+    {
+      "id": 801,
+      "main": "Clouds",
+      "description": "few clouds",
+      "icon": "02n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 283.9,
+    "feels_like": 283.02,
+    "temp_min": 283.59,
+    "temp_max": 283.9,
+    "pressure": 1023,
+    "humidity": 76,
+    "sea_level": 1023,
+    "grnd_level": 954
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 4.16,
+    "deg": 268,
+    "gust": 10.44
+  },
+  "clouds": { "all": 14 },
+  "dt": 1630611182,
+  "sys": {
+    "type": 2,
+    "id": 2039162,
+    "country": "RO",
+    "sunrise": 1630554065,
+    "sunset": 1630601763
+  },
+  "timezone": 10800,
+  "id": 683843,
+  "name": "Braşov",
+  "cod": 200
+}

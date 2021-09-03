@@ -31,15 +31,14 @@ namespace AspNetSandbox.Controllers
         {
                 
                 var json = JObject.Parse(content);
+            
+                var currentCityCoord = json["coord"];
 
-                   
-                    JToken currentCityCoord = json["coord"];
-
-                    return new CityCoord() { 
-                        cityName = cityName,
-                        latitude = currentCityCoord.Value<float>("lat"),
-                        longtitude = currentCityCoord.Value<float>("lon"),
-                    };
+                return new CityCoord() { 
+                    cityName = cityName,
+                    latitude = currentCityCoord.Value<float>("lat"),
+                    longtitude = currentCityCoord.Value<float>("lon"),
+                };
         }
 
         }

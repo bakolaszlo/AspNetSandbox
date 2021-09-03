@@ -7,11 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="BerlinApiResponse.json" />
+    <None Remove="BrasovApiResponse.json" />
     <None Remove="DataFromOpenWeatherAPI.json" />
+    <None Remove="LondonApiResponse.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="BerlinApiResponse.json" />
+    <EmbeddedResource Include="BrasovApiResponse.json" />
     <EmbeddedResource Include="DataFromOpenWeatherAPI.json" />
+    <EmbeddedResource Include="LondonApiResponse.json" />
   </ItemGroup>
 
   <ItemGroup>
