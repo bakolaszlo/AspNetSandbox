@@ -33,9 +33,8 @@ namespace AspNetSandbox.Tests
                 Language = "Hungarian",
                 Author = "José Rodrigues dos Santos"
             });
-
             // Assert
-            Assert.Equal("Az isteni formula3",bookService.Get(3).Title);
+            Assert.Equal("Az isteni formula4",bookService.Get(3).Title);
 
         }
     }
