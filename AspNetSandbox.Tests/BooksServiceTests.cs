@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
+﻿using Xunit;
 
 namespace AspNetSandbox.Tests
 {
     public class BooksServiceTests
     {
         [Fact]
-        public void BookIdTests()
+        public void BookIdAndRemoveTests()
         {
-        // Assume
-
-        var bookService = new BooksService();
+            // Assume
+            var bookService = new BooksService();
 
             // Act
-
             bookService.AddBook(new Book
             {
                 Title = "Az isteni formula3",
@@ -25,7 +18,7 @@ namespace AspNetSandbox.Tests
                 Author = "José Rodrigues dos Santos"
             });
 
-            bookService.DeleteBookById(2);
+            bookService.RemoveBookById(2);
 
             bookService.AddBook(new Book
             {
@@ -35,7 +28,29 @@ namespace AspNetSandbox.Tests
             });
             // Assert
             Assert.Equal("Az isteni formula4",bookService.Get(3).Title);
-
         }
+
+
+        [Fact]
+        public void BookUpdateTests()
+        {
+            // Assume
+            var bookService = new BooksService();
+
+            // Act
+            int workingId = 2;
+
+            Book book = new Book {
+                Title = "New Book Title",
+                Language = "English",
+                Author = "Null"
+            };
+
+            bookService.UpdateBookById(workingId, book);
+
+            // Assert
+            Assert.Equal("New Book Title", bookService.Get(workingId).Title);
+        }
+
     }
 }

@@ -68,7 +68,7 @@ namespace AspNetSandbox
             }
         }
 
-        public void DeleteBookById(int id)
+        public void RemoveBookById(int id)
         {
             books.Remove(Get(id));
         }

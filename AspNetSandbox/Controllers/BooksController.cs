@@ -51,7 +51,7 @@ namespace AspNetSandbox
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            booksService.DeleteBookById(id);
+            booksService.RemoveBookById(id);
         }
 
 
