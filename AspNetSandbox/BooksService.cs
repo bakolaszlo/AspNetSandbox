@@ -48,18 +48,27 @@ namespace AspNetSandbox
             }
         }
 
-        public void Post(Book value)
+        public void AddBook(Book value)
         {
             value.Id = bookIdCounter++;
             books.Add(value);
         }
 
-        public void Put(int id, string value)
+        public void UpdateBookById(int id, Book value)
         {
+            value.Id = id;
 
+            int index = books.FindIndex(book => book.Id == id);
+
+            Book toReplace = Get(id);
+
+            if(toReplace!=null)
+            {
+                books[index] = value;
+            }
         }
 
-        public void Delete(int id)
+        public void DeleteBookById(int id)
         {
             books.Remove(Get(id));
         }

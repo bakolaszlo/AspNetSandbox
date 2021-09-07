@@ -18,16 +18,16 @@ namespace AspNetSandbox.Tests
 
             // Act
 
-            bookService.Post(new Book
+            bookService.AddBook(new Book
             {
                 Title = "Az isteni formula3",
                 Language = "Hungarian",
                 Author = "José Rodrigues dos Santos"
             });
 
-            bookService.Delete(2);
+            bookService.DeleteBookById(2);
 
-            bookService.Post(new Book
+            bookService.AddBook(new Book
             {
                 Title = "Az isteni formula4",
                 Language = "Hungarian",
