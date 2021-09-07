@@ -38,7 +38,6 @@ namespace AspNetSandbox.Tests
             var bookService = new BooksService();
 
             // Act
-            int workingId = 2;
 
             Book book = new Book {
                 Title = "New Book Title",
@@ -46,10 +45,18 @@ namespace AspNetSandbox.Tests
                 Author = "Null"
             };
 
-            bookService.UpdateBookById(workingId, book);
+            Book bookWithoutAuthor = new Book
+            {
+                Title = "A book without author",
+                Language = "Unknown",
+            };
+
+            bookService.UpdateBookById(2, book);
+            bookService.UpdateBookById(1, bookWithoutAuthor);
 
             // Assert
-            Assert.Equal("New Book Title", bookService.Get(workingId).Title);
+            Assert.Equal("New Book Title", bookService.Get(2).Title);
+            Assert.Null(bookService.Get(1).Author);
         }
 
     }
