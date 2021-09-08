@@ -21,6 +21,7 @@ namespace AspNetSandbox.Tests
             var output = controller.ConvertCityNameResponseToCityObject(content);
 
 
+
             // Assert
             Assert.Equal("Brașov", output.cityName); //{"coord":{"lon":25.3333,"lat":45.75}
             Assert.Equal(25.3333f, output.longtitude);
