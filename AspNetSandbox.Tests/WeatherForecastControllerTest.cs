@@ -1,55 +1,42 @@
-﻿using AspNetSandbox.Controllers;
-using System;
-using System.IO;
-using Xunit;
+﻿// <copyright file="WeatherForecastControllerTest.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace AspNetSandbox.Tests
 {
+    using System;
+    using System.IO;
+    using AspNetSandbox.Controllers;
+    using Xunit;
+
+    /// <summary>Test units for WeatherForecastController.</summary>
     public class WeatherForecastControllerTest
     {
-        
-
+        /// <summary>Tomorrow response convertion into weather forecast, test.</summary>
         [Fact]
         public void ConvertResponseToWeatherForecastTest()
         {
             // Assume
-
-
             string content = LoadJsonFromResource();
             var controller = new WeatherForecastController();
-
 
             // Act
             var output = controller.ConvertResponseToWeatherForecast(content);
 
-
-
             // Assert
             var weatherForecastForTomorrow = ((WeatherForecast[])output)[0];
 
-            /*
-            var forecastArray = (WeatherForecast[])output;
-
-            for (int i = 0; i < forecastArray.Length; i++)
-            {
-                var weatherForecastTest = forecastArray[i];
-                Assert.Equal("Clouds", weatherForecastTest.Summary);
-                Assert.Equal(16, weatherForecastTest.TemperatureC);
-                Assert.Equal(new DateTime(2021, 9, 2), weatherForecastTest.Date);
-
-            }*/
-            
             Assert.Equal("Clouds", weatherForecastForTomorrow.Summary);
             Assert.Equal(16, weatherForecastForTomorrow.TemperatureC);
-            Assert.Equal(new DateTime(2021,9,2), weatherForecastForTomorrow.Date);
-
+            Assert.Equal(new DateTime(2021, 9, 2), weatherForecastForTomorrow.Date);
         }
 
+        /// <summary>After tomorrow response convertion into weather forecast, test.</summary>
         [Fact]
         public void ConvertResponseToWeatherForecastAfterTomorrowTest()
         {
             // Assume
-            string content = LoadJsonFromResource(); 
+            string content = LoadJsonFromResource();
             var controller = new WeatherForecastController();
 
             // Act
