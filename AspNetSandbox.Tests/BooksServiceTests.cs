@@ -1,11 +1,17 @@
-﻿using Xunit;
+﻿// <copyright file="BooksServiceTests.cs" company="P33">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace AspNetSandbox.Tests
 {
+    using Xunit;
+
+    /// <summary>Testing class for the BooksService methods.</summary>
     public class BooksServiceTests
     {
+        /// <summary>Identifier and remove tests for Book.</summary>
         [Fact]
-        public void BookIdAndRemoveTests()
+        public void IdAndRemoveTestForBook()
         {
             // Assume
             var bookService = new BooksService();
@@ -28,18 +34,19 @@ namespace AspNetSandbox.Tests
             });
 
             // Assert
-            Assert.Equal("Az isteni formula4",bookService.Get(4).Title);
+            Assert.Equal("Az isteni formula4", bookService.Get(4).Title);
         }
 
-
+        /// <summary>Update test for book.</summary>
         [Fact]
-        public void BookUpdateTests()
+        public void UpdateTestForBook()
         {
             // Assume
             var bookService = new BooksService();
 
             // Act
-            Book book = new Book {
+            Book book = new Book
+            {
                 Title = "New Book Title",
                 Language = "English",
                 Author = "No author",
