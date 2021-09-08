@@ -42,7 +42,7 @@ namespace AspNetSandbox.Tests
             Book book = new Book {
                 Title = "New Book Title",
                 Language = "English",
-                Author = "Null"
+                Author = "No author"
             };
 
             Book bookWithoutAuthor = new Book

@@ -40,7 +40,7 @@ namespace AspNetSandbox
         {
             try
             {
-                return books.Single(book => book.Id == id);
+                return books.Single(_ => _.Id == id);
             }
             catch
             {
@@ -48,23 +48,22 @@ namespace AspNetSandbox
             }
         }
 
-        public void AddBook(Book value)
+        public void AddBook(Book newBook)
         {
-            value.Id = bookIdCounter++;
-            books.Add(value);
+            newBook.Id = bookIdCounter++;
+            books.Add(newBook);
         }
 
-        public void UpdateBookById(int id, Book value)
+        public void UpdateBookById(int id, Book newBook)
         {
-            value.Id = id;
-
-            int index = books.FindIndex(book => book.Id == id);
+            newBook.Id = id;
 
             Book toReplace = Get(id);
 
             if(toReplace!=null)
             {
-                books[index] = value;
+                int index = books.FindIndex(_ => _.Id == id);
+                books[index] = newBook;
             }
         }
 
