@@ -18,7 +18,7 @@ namespace AspNetSandbox.Tests
                 Author = "José Rodrigues dos Santos"
             });
 
-            bookService.RemoveBookById(2);
+            bookService.RemoveBookById(3);
 
             bookService.AddBook(new Book
             {
@@ -27,7 +27,7 @@ namespace AspNetSandbox.Tests
                 Author = "José Rodrigues dos Santos"
             });
             // Assert
-            Assert.Equal("Az isteni formula4",bookService.Get(3).Title);
+            Assert.Equal("Az isteni formula4",bookService.Get(4).Title);
         }
 
 
