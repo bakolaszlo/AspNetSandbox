@@ -1,18 +1,28 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
-using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿// <copyright file="CityCoordController.cs" company="P33">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace AspNetSandbox.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json.Linq;
+    using RestSharp;
+
+    /// <summary>
+    /// The controller that allows us to get third party stuff.
+    /// </summary>
     [Route("/weatherForecastCityCoordFrom{city}")]
     [ApiController]
     public class CityCoordController : ControllerBase
     {
+        /// <summary>Gets the specified city name and coordinates.</summary>
+        /// <param name="city">The city name.</param>
+        /// <returns>CityCoord object.</returns>
         [HttpGet]
         public CityCoord Get(string city)
         {
@@ -23,13 +33,17 @@ namespace AspNetSandbox.Controllers
             return ConvertCityNameResponseToCityObject(response.Content);
         }
 
+        /// <summary>Converts the city name response to city object.</summary>
+        /// <param name="content">The content.</param>
+        /// <returns>CityCoord object.</returns>
         [NonAction]
         public CityCoord ConvertCityNameResponseToCityObject(string content)
         {
                 var json = JObject.Parse(content);
                 var currentCityCoord = json["coord"];
 
-                return new CityCoord() { 
+                return new CityCoord()
+                {
                     cityName = json.Value<string>("name"),
                     latitude = currentCityCoord.Value<float>("lat"),
                     longtitude = currentCityCoord.Value<float>("lon"),
