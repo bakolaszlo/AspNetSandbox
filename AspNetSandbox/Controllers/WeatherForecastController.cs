@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json.Linq;
-using RestSharp;
+﻿// <copyright file="WeatherForecastController.cs" company="P33">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace AspNetSandbox.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
+    using Newtonsoft.Json.Linq;
+    using RestSharp;
+
     /// <summary>
     /// The controller that allows us to get third party stuff.
     /// </summary>
@@ -27,16 +31,18 @@ namespace AspNetSandbox.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-
             var client = new RestClient("https://api.openweathermap.org/data/2.5/onecall?lat=46.652010&lon=24.484990&exclude=hourly,minutely&appid=392f1cbc2531c9951e2e9e5fbfab4609");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             IRestResponse response = client.Execute(request);
-            Console.WriteLine(response.Content);
 
             return ConvertResponseToWeatherForecast(response.Content);
         }
 
+        /// <summary>Converts the response to weather forecast.</summary>
+        /// <param name="content">The content.</param>
+        /// <param name="amount">The amount.</param>
+        /// <returns>IEnumerable for WeatherForecast object.</returns>
         [NonAction]
 
         public IEnumerable<WeatherForecast> ConvertResponseToWeatherForecast(string content, int amount = 5)
@@ -53,7 +59,7 @@ namespace AspNetSandbox.Controllers
                 {
                     Date = DateTimeOffset.FromUnixTimeSeconds(unixDateTime).Date,
                     TemperatureC = ExtractCelsiusTemperatureFromDailyWeather(jsonDailyForecast),
-                    Summary = weatherSummary
+                    Summary = weatherSummary,
                 };
             })
             .ToArray();
@@ -61,12 +67,7 @@ namespace AspNetSandbox.Controllers
 
         private static int ExtractCelsiusTemperatureFromDailyWeather(JToken jsonDailyForecast)
         {
-            return (int)Math.Round((jsonDailyForecast["temp"].Value<float>("day") - KELVIN_CONST));
+            return (int)Math.Round(jsonDailyForecast["temp"].Value<float>("day") - KELVIN_CONST);
         }
-
-
-        
     }
-
-    
 }
