@@ -22,7 +22,7 @@ namespace AspNetSandbox.Tests
 
 
             // Assert
-            Assert.Equal("Brasov", output.cityName); //{"coord":{"lon":25.3333,"lat":45.75}
+            Assert.Equal("Brașov", output.cityName); //{"coord":{"lon":25.3333,"lat":45.75}
             Assert.Equal(25.3333f, output.longtitude);
             Assert.Equal(45.75f, output.latitude);
 
