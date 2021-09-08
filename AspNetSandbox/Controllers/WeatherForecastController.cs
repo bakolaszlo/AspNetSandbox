@@ -19,7 +19,7 @@ namespace AspNetSandbox.Controllers
         private const float KELVIN_CONST = 273.15f;
 
         /// <summary>
-        /// Getting weahter forecast for 5 days.
+        /// Getting weather forecast for 5 days.
         /// </summary>
         /// <returns>
         /// IEnumerable for WeatherForecast object.
