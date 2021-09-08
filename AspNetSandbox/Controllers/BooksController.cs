@@ -13,17 +13,18 @@ namespace AspNetSandbox
     public class BooksController : ControllerBase
     {
         private readonly IBooksService booksService;
+
         public BooksController(IBooksService booksService)
         {
             this.booksService = booksService;
         }
+
         // GET: api/<BooksController>
         [HttpGet]
         public IEnumerable<Book> Get()
         {
             return booksService.Get();
         }
-
 
         // GET api/<BooksController>/5
         [HttpGet("{id}")]
@@ -39,7 +40,6 @@ namespace AspNetSandbox
             }
         }
 
-        
         // POST api/<BooksController>
         [HttpPost]
         public void Post([FromBody] Book value)
@@ -60,7 +60,6 @@ namespace AspNetSandbox
         {
             booksService.RemoveBookById(id);
         }
-
 
     }
 }

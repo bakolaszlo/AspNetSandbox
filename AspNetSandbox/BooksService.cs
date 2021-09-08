@@ -60,7 +60,7 @@ namespace AspNetSandbox
 
             Book toReplace = Get(id);
 
-            if(toReplace!=null)
+            if (toReplace != null)
             {
                 int index = books.FindIndex(_ => _.Id == id);
                 books[index] = newBook;

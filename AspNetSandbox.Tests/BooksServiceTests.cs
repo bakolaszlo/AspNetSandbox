@@ -15,7 +15,7 @@ namespace AspNetSandbox.Tests
             {
                 Title = "Az isteni formula3",
                 Language = "Hungarian",
-                Author = "José Rodrigues dos Santos"
+                Author = "José Rodrigues dos Santos",
             });
 
             bookService.RemoveBookById(3);
@@ -24,8 +24,9 @@ namespace AspNetSandbox.Tests
             {
                 Title = "Az isteni formula4",
                 Language = "Hungarian",
-                Author = "José Rodrigues dos Santos"
+                Author = "José Rodrigues dos Santos",
             });
+
             // Assert
             Assert.Equal("Az isteni formula4",bookService.Get(4).Title);
         }
@@ -38,11 +39,10 @@ namespace AspNetSandbox.Tests
             var bookService = new BooksService();
 
             // Act
-
             Book book = new Book {
                 Title = "New Book Title",
                 Language = "English",
-                Author = "No author"
+                Author = "No author",
             };
 
             Book bookWithoutAuthor = new Book
@@ -58,6 +58,5 @@ namespace AspNetSandbox.Tests
             Assert.Equal("New Book Title", bookService.Get(2).Title);
             Assert.Null(bookService.Get(1).Author);
         }
-
     }
 }
