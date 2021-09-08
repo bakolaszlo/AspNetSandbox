@@ -13,16 +13,13 @@ namespace AspNetSandbox.Controllers
     [ApiController]
     public class CityCoordController : ControllerBase
     {
-       
         [HttpGet]
         public CityCoord Get(string city)
         {
-
             var client = new RestClient($"http://api.openweathermap.org/data/2.5/weather?q={city}&appid=392f1cbc2531c9951e2e9e5fbfab4609");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             IRestResponse response = client.Execute(request);
-
             return ConvertCityNameResponseToCityObject(response.Content);
         }
 
@@ -38,6 +35,5 @@ namespace AspNetSandbox.Controllers
                     longtitude = currentCityCoord.Value<float>("lon"),
                 };
         }
-
-        }
     }
+}

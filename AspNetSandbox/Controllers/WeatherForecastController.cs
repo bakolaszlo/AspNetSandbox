@@ -9,12 +9,21 @@ using RestSharp;
 
 namespace AspNetSandbox.Controllers
 {
+    /// <summary>
+    /// The controller that allows us to get third party stuff.
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private const float KELVIN_CONST = 273.15f;
-        
+
+        /// <summary>
+        /// Getting weahter forecast for 5 days.
+        /// </summary>
+        /// <returns>
+        /// IEnumerable for WeatherForecast object.
+        /// </returns>
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
