@@ -8,6 +8,7 @@ namespace AspNetSandbox
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using AspNetSandbox.Models;
 
     /// <summary>Service for BooksController.</summary>
     public class BooksService : IBooksService

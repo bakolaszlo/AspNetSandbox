@@ -4,6 +4,7 @@
 
 namespace AspNetSandbox
 {
+    using AspNetSandbox.Models;
     using System.Collections.Generic;
 
     /// <summary>Interface for Books.</summary>

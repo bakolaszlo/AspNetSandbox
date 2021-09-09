@@ -8,6 +8,7 @@ namespace AspNetSandbox
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using AspNetSandbox.Models;
     using Microsoft.AspNetCore.Mvc;
 
     /// <summary>The main controller for the Book api communication.</summary>

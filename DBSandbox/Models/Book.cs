@@ -1,15 +1,10 @@
-﻿// <copyright file="Book.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AspNetSandbox
+namespace DBSandbox.Models
 {
-    /// <summary>The Book instance.</summary>
     public class Book
     {
         /// <summary>Gets or sets the identifier.</summary>
