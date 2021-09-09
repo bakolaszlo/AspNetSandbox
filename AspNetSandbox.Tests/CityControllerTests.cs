@@ -24,9 +24,9 @@ namespace AspNetSandbox.Tests
             var output = controller.ConvertCityNameResponseToCityObject(content);
 
             // Assert
-            Assert.Equal("London", output.cityName);
-            Assert.Equal(-0.1257f, output.longtitude);
-            Assert.Equal(51.5085f, output.latitude);
+            Assert.Equal("London", output.CityName);
+            Assert.Equal(-0.1257f, output.Longtitude);
+            Assert.Equal(51.5085f, output.Latitude);
         }
 
         /// <summary>CityController Test for Brasov as city.</summary>
@@ -41,9 +41,9 @@ namespace AspNetSandbox.Tests
             var output = controller.ConvertCityNameResponseToCityObject(content);
 
             // Assert
-            Assert.Equal("Brasov", output.cityName);
-            Assert.Equal(25.3333f, output.longtitude);
-            Assert.Equal(45.75f, output.latitude);
+            Assert.Equal("Brasov", output.CityName);
+            Assert.Equal(25.3333f, output.Longtitude);
+            Assert.Equal(45.75f, output.Latitude);
         }
 
         /// <summary>CityController Test for Berlin as city.</summary>
@@ -58,9 +58,9 @@ namespace AspNetSandbox.Tests
             var output = controller.ConvertCityNameResponseToCityObject(content);
 
             // Assert
-            Assert.Equal("Berlin", output.cityName);
-            Assert.Equal(13.4105f, output.longtitude);
-            Assert.Equal(52.5244f, output.latitude);
+            Assert.Equal("Berlin", output.CityName);
+            Assert.Equal(13.4105f, output.Longtitude);
+            Assert.Equal(52.5244f, output.Latitude);
         }
 
         private string LoadJsonFromResource(string filename)

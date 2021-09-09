@@ -44,9 +44,9 @@ namespace AspNetSandbox.Controllers
 
                 return new CityCoord()
                 {
-                    cityName = json.Value<string>("name"),
-                    latitude = currentCityCoord.Value<float>("lat"),
-                    longtitude = currentCityCoord.Value<float>("lon"),
+                    CityName = json.Value<string>("name"),
+                    Latitude = currentCityCoord.Value<float>("lat"),
+                    Longtitude = currentCityCoord.Value<float>("lon"),
                 };
         }
     }
