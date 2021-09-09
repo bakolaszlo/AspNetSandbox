@@ -1,9 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+  
     <TargetFramework>net5.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+  
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
@@ -39,6 +42,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AspNetSandbox\AspNetSandbox.csproj" />
+	
   </ItemGroup>
 
 </Project>
