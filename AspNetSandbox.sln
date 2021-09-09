@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBSandbox", "DBSandbox\DBSandbox.csproj", "{E5BB87BD-FDBF-4211-ACA7-C6AFFE68144E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B2272D82-A535-4684-81D1-08C358344840}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2272D82-A535-4684-81D1-08C358344840}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2272D82-A535-4684-81D1-08C358344840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5BB87BD-FDBF-4211-ACA7-C6AFFE68144E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5BB87BD-FDBF-4211-ACA7-C6AFFE68144E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5BB87BD-FDBF-4211-ACA7-C6AFFE68144E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5BB87BD-FDBF-4211-ACA7-C6AFFE68144E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
