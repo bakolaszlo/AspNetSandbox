@@ -41,8 +41,8 @@ namespace AspNetSandbox
         /// <param name="services">The services.</param>
         public void ConfigureServices(IServiceCollection services)
         {
-        	services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DBSandbox.Data.Migrations
+namespace AspNetSandbox.Migrations
 {
-    public partial class list : Migration
+    public partial class AddBook : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

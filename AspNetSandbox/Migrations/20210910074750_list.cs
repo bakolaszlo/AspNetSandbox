@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace AspNetSandbox.Data.Migrations
+namespace AspNetSandbox.Migrations
 {
     public partial class list : Migration
     {
