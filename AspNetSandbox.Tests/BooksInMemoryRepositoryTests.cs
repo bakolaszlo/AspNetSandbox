@@ -8,14 +8,14 @@ namespace AspNetSandbox.Tests
     using Xunit;
 
     /// <summary>Testing class for the BooksService methods.</summary>
-    public class BooksServiceTests
+    public class BooksInMemoryRepositoryTests
     {
         /// <summary>Identifier and remove tests for Book.</summary>
         [Fact]
         public void IdAndRemoveTestForBook()
         {
             // Assume
-            var bookService = new BooksService();
+            var bookService = new BooksInMemoryRepository();
 
             // Act
             bookService.AddBook(new Book
@@ -43,7 +43,7 @@ namespace AspNetSandbox.Tests
         public void UpdateTestForBook()
         {
             // Assume
-            var bookService = new BooksService();
+            var bookService = new BooksInMemoryRepository();
 
             // Act
             Book book = new Book

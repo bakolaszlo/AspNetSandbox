@@ -11,13 +11,13 @@ namespace AspNetSandbox
     using AspNetSandbox.Models;
 
     /// <summary>Service for BooksController.</summary>
-    public class BooksService : IBooksService
+    public class BooksInMemoryRepository : IBookRepository
     {
         private List<Book> books;
         private int bookIdCounter = 1;
 
-        /// <summary>Initializes a new instance of the <see cref="BooksService" /> class.</summary>
-        public BooksService()
+        /// <summary>Initializes a new instance of the <see cref="BooksInMemoryRepository" /> class.</summary>
+        public BooksInMemoryRepository()
         {
             books = new List<Book>();
             books.Add(

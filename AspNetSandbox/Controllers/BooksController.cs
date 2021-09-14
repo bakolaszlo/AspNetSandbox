@@ -19,11 +19,12 @@ namespace AspNetSandbox
     public class BooksController : ControllerBase
     {
     	private readonly ApplicationDbContext _context;
+        private readonly IBookRepository booksService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BooksController"/> class.
         /// </summary>
-        /// <param name="booksService"> Singleton Interface. </param>
+        /// <param name="context"> Singleton Interface. </param>
         public BooksController(ApplicationDbContext context)
         {
             _context = context;

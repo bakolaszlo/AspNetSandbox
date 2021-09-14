@@ -2,13 +2,13 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
+using System.Collections.Generic;
+using AspNetSandbox.Models;
+
 namespace AspNetSandbox
 {
-    using AspNetSandbox.Models;
-    using System.Collections.Generic;
-
     /// <summary>Interface for Books.</summary>
-    public interface IBooksService
+    public interface IBookRepository
     {
         /// <summary>Removes the book by identifier.</summary>
         /// <param name="id">The identifier.</param>
