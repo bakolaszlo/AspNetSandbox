@@ -5,6 +5,7 @@
 namespace AspNetSandbox.Tests
 {
     using AspNetSandbox.Models;
+    using AspNetSandbox.Services;
     using Xunit;
 
     /// <summary>Testing class for the BooksService methods.</summary>
