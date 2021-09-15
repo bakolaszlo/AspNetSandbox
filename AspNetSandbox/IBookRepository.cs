@@ -10,6 +10,7 @@ namespace AspNetSandbox
     /// <summary>Interface for Books.</summary>
     public interface IBookRepository
     {
+        List<Book> Get();
         /// <summary>Removes the book by identifier.</summary>
         /// <param name="id">The identifier.</param>
         void RemoveBookById(int id);
@@ -18,7 +19,6 @@ namespace AspNetSandbox
         /// <returns>
         ///   <para>IEnumerable for type Book.</para>
         /// </returns>
-        IEnumerable<Book> Get();
 
         /// <summary>Gets the specified book by identifier.</summary>
         /// <param name="id">The identifier.</param>

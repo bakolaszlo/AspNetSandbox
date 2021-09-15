@@ -60,7 +60,7 @@ namespace AspNetSandbox
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
             });
-            services.AddSingleton<IBookRepository, BooksInMemoryRepository>();
+            services.AddScoped<IBookRepository, DbBooksRepository>();
         }
 
         /// <summary>Configures the specified application.</summary>

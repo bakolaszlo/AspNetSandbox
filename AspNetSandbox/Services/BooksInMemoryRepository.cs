@@ -40,7 +40,7 @@ namespace AspNetSandbox.Services
 
         /// <summary>Gets this instance.</summary>
         /// <returns>IEnumerable of type Book.</returns>
-        public IEnumerable<Book> Get()
+        public IEnumerable<Book> GetAsync()
         {
             return books;
         }
@@ -89,6 +89,11 @@ namespace AspNetSandbox.Services
         public void RemoveBookById(int id)
         {
             books.Remove(Get(id));
+        }
+
+        public List<Book> Get()
+        {
+            return books;
         }
     }
 }
