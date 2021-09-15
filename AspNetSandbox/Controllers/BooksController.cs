@@ -2,18 +2,19 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AspNetSandbox.Data;
+using AspNetSandbox.Dtos;
+using AspNetSandbox.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
+
 namespace AspNetSandbox
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using AspNetSandbox.Data;
-    using AspNetSandbox.Models;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.SignalR;
-    using Microsoft.EntityFrameworkCore;
-
     /// <summary>The main controller for the Book api communication.</summary>
     [Route("api/[controller]")]
     [ApiController]
@@ -62,8 +63,9 @@ namespace AspNetSandbox
         /// <summary>Add a new book.</summary>
         /// <param name="newBook">The new Book.</param>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Book newBook)
+        public async Task<IActionResult> Post([FromBody] CreateBookDto newBook)
         {
+
             if (ModelState.IsValid)
             {
                 repository.AddBook(newBook);

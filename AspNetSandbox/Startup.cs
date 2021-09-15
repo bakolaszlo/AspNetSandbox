@@ -62,6 +62,7 @@ namespace AspNetSandbox
             });
             services.AddSignalR();
             services.AddScoped<IBookRepository, DbBooksRepository>();
+            //services.AddAutoMapper();
         }
 
         /// <summary>Configures the specified application.</summary>
