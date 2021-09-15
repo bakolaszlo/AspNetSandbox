@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AspNetSandbox.Dtos
 {
-    public class CreateBookDto
+    public class BookDto
     {
         /// <summary>Gets or sets the title.</summary>
         /// <value>The title.</value>
@@ -19,4 +19,5 @@ namespace AspNetSandbox.Dtos
         /// <value>The language.</value>
         public string Language { get; set; }
     }
+
 }

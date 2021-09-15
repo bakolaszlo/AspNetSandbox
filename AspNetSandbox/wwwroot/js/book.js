@@ -8,8 +8,8 @@ connection.start().then(function () {
     return console.error(err.toString());
 });
 
-connection.on("AddedBook", function (book) {
-    console.log("Book added: " + book.toString());
+connection.on("BookCreated", function (book) {
+    console.log("Book added: " + JSON.stringify(book));
     $("tbody").append(`<tr>
     <td>
             ${book.title}
@@ -27,4 +27,12 @@ connection.on("AddedBook", function (book) {
     </td>
     </tr>
     `);
+});
+
+connection.on("BookEdited", function (book) {
+    console.log("Edited Book Result: " + JSON.stringify(book));
+});
+
+connection.on("BookRemoved", function (book) {
+    console.log("The removed Book was: " + JSON.stringify(book));
 });

@@ -1,9 +1,7 @@
 ﻿@page
 @model AspNetSandbox.Pages.Shared.EditModel
 
-@{
-    ViewData["Title"] = "Edit";
-}
+@{ ViewData["Title"] = "Edit"; }
 
 <h1>Edit</h1>
 
@@ -42,4 +40,6 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/lib/microsoft-signalr/signalr.js"></script>
+    <script src="~/js/book.js"></script>
 }

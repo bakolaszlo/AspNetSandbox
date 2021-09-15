@@ -65,7 +65,7 @@ namespace AspNetSandbox
         /// <summary>Add a new book.</summary>
         /// <param name="bookDto">The new Book.</param>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreateBookDto bookDto)
+        public async Task<IActionResult> Post([FromBody] BookDto bookDto)
         {
 
             if (ModelState.IsValid)

@@ -1,5 +1,7 @@
 ﻿using System.Threading.Tasks;
+using AspNetSandbox.Dtos;
 using AspNetSandbox.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.SignalR;
@@ -11,14 +13,17 @@ namespace AspNetSandbox.Pages.Shared
     {
         private readonly AspNetSandbox.Data.ApplicationDbContext context;
         private readonly IHubContext<MessageHub> hubContext;
-        public CreateModel(AspNetSandbox.Data.ApplicationDbContext context, IHubContext<MessageHub> hubContext)
+        private readonly IMapper mapper;
+
+        public CreateModel(AspNetSandbox.Data.ApplicationDbContext context, IHubContext<MessageHub> hubContext, IMapper mapper)
         {
             this.context = context;
             this.hubContext = hubContext;
+            this.mapper = mapper;
         }
 
         [BindProperty]
-        public Book Book { get; set; }
+        public BookDto BookDto { get; set; }
 
         public IActionResult OnGet()
         {
@@ -32,9 +37,9 @@ namespace AspNetSandbox.Pages.Shared
             {
                 return Page();
             }
-
-            this.context.Book.Add(Book);
-            hubContext.Clients.All.SendAsync("BookCreated", Book);
+            Book book = mapper.Map<Book>(BookDto);
+            this.context.Book.Add(book);
+            hubContext.Clients.All.SendAsync("BookCreated", BookDto);
             await this.context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
