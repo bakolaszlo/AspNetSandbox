@@ -11,6 +11,7 @@ namespace AspNetSandbox
     using AspNetSandbox.Data;
     using AspNetSandbox.Models;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.SignalR;
     using Microsoft.EntityFrameworkCore;
 
     /// <summary>The main controller for the Book api communication.</summary>
@@ -19,14 +20,18 @@ namespace AspNetSandbox
     public class BooksController : ControllerBase
     {
         private readonly IBookRepository repository;
+        private readonly IHubContext<MessageHub> hubContext;
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BooksController"/> class.
         /// </summary>
         /// <param name="repository"> Singleton Interface. </param>
-        public BooksController(IBookRepository repository)
+        /// <param name="hubContext"></param>
+        public BooksController(IBookRepository repository, IHubContext<MessageHub> hubContext)
         {
             this.repository = repository;
+            this.hubContext = hubContext;
         }
 
         /// <summary>Gets the whole instance of books.</summary>
@@ -62,6 +67,7 @@ namespace AspNetSandbox
             if (ModelState.IsValid)
             {
                 repository.AddBook(newBook);
+                hubContext.Clients.All.SendAsync("BookCreated", newBook);
                 return Ok();
             }
 

@@ -2,6 +2,7 @@
 using AspNetSandbox.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.SignalR;
 
 namespace AspNetSandbox.Pages.Shared
 {
@@ -9,10 +10,11 @@ namespace AspNetSandbox.Pages.Shared
     public class CreateModel : PageModel
     {
         private readonly AspNetSandbox.Data.ApplicationDbContext context;
-
-        public CreateModel(AspNetSandbox.Data.ApplicationDbContext context)
+        private readonly IHubContext<MessageHub> hubContext;
+        public CreateModel(AspNetSandbox.Data.ApplicationDbContext context, IHubContext<MessageHub> hubContext)
         {
             this.context = context;
+            this.hubContext = hubContext;
         }
 
         [BindProperty]
@@ -32,6 +34,7 @@ namespace AspNetSandbox.Pages.Shared
             }
 
             this.context.Book.Add(Book);
+            hubContext.Clients.All.SendAsync("BookCreated", Book);
             await this.context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
