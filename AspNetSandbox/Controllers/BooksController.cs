@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using AspNetSandbox.Data;
 using AspNetSandbox.Dtos;
 using AspNetSandbox.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
@@ -22,17 +23,18 @@ namespace AspNetSandbox
     {
         private readonly IBookRepository repository;
         private readonly IHubContext<MessageHub> hubContext;
-
+        private readonly IMapper mapper;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BooksController"/> class.
         /// </summary>
         /// <param name="repository"> Singleton Interface. </param>
         /// <param name="hubContext"></param>
-        public BooksController(IBookRepository repository, IHubContext<MessageHub> hubContext)
+        public BooksController(IBookRepository repository, IHubContext<MessageHub> hubContext, IMapper mapper)
         {
             this.repository = repository;
             this.hubContext = hubContext;
+            this.mapper = mapper;
         }
 
         /// <summary>Gets the whole instance of books.</summary>
@@ -61,15 +63,16 @@ namespace AspNetSandbox
         }
 
         /// <summary>Add a new book.</summary>
-        /// <param name="newBook">The new Book.</param>
+        /// <param name="bookDto">The new Book.</param>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreateBookDto newBook)
+        public async Task<IActionResult> Post([FromBody] CreateBookDto bookDto)
         {
 
             if (ModelState.IsValid)
             {
-                repository.AddBook(newBook);
-                hubContext.Clients.All.SendAsync("BookCreated", newBook);
+                Book book = mapper.Map<Book>(bookDto);
+                repository.AddBook(book);
+                hubContext.Clients.All.SendAsync("BookCreated", bookDto);
                 return Ok();
             }
 
