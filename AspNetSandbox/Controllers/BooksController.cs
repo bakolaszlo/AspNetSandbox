@@ -43,7 +43,7 @@ namespace AspNetSandbox
         public async Task<IActionResult> Get()
         {
             var exposedRepository = repository.Get();
-            var mappedRepository = mapper.Map<List<ReadBookDto>>(exposedRepository);
+            var mappedRepository = mapper.Map<List<Book>, List<ReadBookDto>>(exposedRepository);
             return Ok(mappedRepository);
         }
 
