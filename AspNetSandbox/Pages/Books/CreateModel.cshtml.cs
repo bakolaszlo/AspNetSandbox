@@ -35,15 +35,18 @@ namespace AspNetSandbox.Pages.Shared
         [BindProperty]
         public CreateBookDto BookDto { get; set; }
 
+        /// <summary>Called when [get].</summary>
+        /// <returns>
+        ///   <para>Action result.</para>
+        /// </returns>
         public IActionResult OnGet()
         {
             return Page();
         }
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         /// <summary>Called when [post asynchronous].</summary>
         /// <returns>
-        ///   <br />
+        ///   Redirect command for page.
         /// </returns>
         public async Task<IActionResult> OnPostAsync()
         {
