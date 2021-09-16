@@ -29,7 +29,7 @@ namespace AspNetSandbox
         /// Initializes a new instance of the <see cref="BooksController"/> class.
         /// </summary>
         /// <param name="repository"> Singleton Interface. </param>
-        /// <param name="hubContext"></param>
+        /// <param name="hubContext"> SignalR. </param>
         public BooksController(IBookRepository repository, IHubContext<MessageHub> hubContext, IMapper mapper)
         {
             this.repository = repository;
@@ -67,6 +67,7 @@ namespace AspNetSandbox
 
         /// <summary>Add a new book.</summary>
         /// <param name="bookDto">The new Book.</param>
+        /// <returns>The action result.</returns>
         [HttpPost]
         public IActionResult Post([FromBody] CreateBookDto bookDto)
         {
@@ -85,6 +86,7 @@ namespace AspNetSandbox
         /// <summary>Updates a book content, by id.</summary>
         /// <param name="id">The identifier.</param>
         /// <param name="updatedBook">New Book content.</param>
+        /// <returns>The action result..</returns>
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Book updatedBook)
         {
@@ -94,6 +96,7 @@ namespace AspNetSandbox
 
         /// <summary>Deletes the specified Book by identifier.</summary>
         /// <param name="id">The identifier.</param>
+        /// <returns>The action result.</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
