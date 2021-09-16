@@ -21,6 +21,10 @@ namespace AspNetSandbox.Pages.Shared
         private readonly IHubContext<MessageHub> hubContext;
         private readonly IMapper mapper;
 
+        /// <summary>Initializes a new instance of the <see cref="EditModel" /> class.</summary>
+        /// <param name="context">The context.</param>
+        /// <param name="hubContext">The hub context.</param>
+        /// <param name="mapper">The mapper.</param>
         public EditModel(AspNetSandbox.Data.ApplicationDbContext context, IHubContext<MessageHub> hubContext, IMapper mapper)
         {
             this.context = context;
@@ -28,9 +32,14 @@ namespace AspNetSandbox.Pages.Shared
             this.mapper = mapper;
         }
 
+        /// <summary>Gets or sets the book.</summary>
+        /// <value>The book.</value>
         [BindProperty]
         public Book Book { get; set; }
 
+        /// <summary>Called when [get asynchronous].</summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>Action result.</returns>
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -48,8 +57,8 @@ namespace AspNetSandbox.Pages.Shared
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
+        /// <summary>Called when [post asynchronous].</summary>
+        /// <returns>Action result.</returns>
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
