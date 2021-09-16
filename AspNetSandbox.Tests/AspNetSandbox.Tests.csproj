@@ -13,6 +13,11 @@
     <None Remove="BrasovApiResponse.json" />
     <None Remove="DataFromOpenWeatherAPI.json" />
     <None Remove="LondonApiResponse.json" />
+    <None Remove="stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,5 +1,5 @@
-﻿// <copyright file="Startup.cs" company="P33">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="MessageHub.cs" company="P33">
+// Copyright (c) P33. All rights reserved.
 // </copyright>
 
 using System.Threading.Tasks;
@@ -13,8 +13,5 @@ namespace AspNetSandbox
         {
             await Clients.All.SendAsync("ReceiveMessage", user, message);
         }
-
-
-
     }
 }

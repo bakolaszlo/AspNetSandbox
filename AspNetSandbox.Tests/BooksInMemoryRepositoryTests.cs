@@ -1,5 +1,5 @@
-﻿// <copyright file="BooksServiceTests.cs" company="P33">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="BooksInMemoryRepositoryTests.cs" company="P33">
+// Copyright (c) P33. All rights reserved.
 // </copyright>
 
 namespace AspNetSandbox.Tests

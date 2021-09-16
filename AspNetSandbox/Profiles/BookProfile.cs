@@ -1,4 +1,8 @@
-﻿using AspNetSandbox.Dtos;
+﻿// <copyright file="BookProfile.cs" company="P33">
+// Copyright (c) P33. All rights reserved.
+// </copyright>
+
+using AspNetSandbox.Dtos;
 using AspNetSandbox.Models;
 using AutoMapper;
 using System;

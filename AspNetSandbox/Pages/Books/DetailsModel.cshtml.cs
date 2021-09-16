@@ -1,4 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿// <copyright file="DetailsModel.cshtml.cs" company="P33">
+// Copyright (c) P33. All rights reserved.
+// </copyright>
+
+using System.Threading.Tasks;
 using AspNetSandbox.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

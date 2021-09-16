@@ -1,4 +1,8 @@
-﻿using System.Linq;
+﻿// <copyright file="EditModel.cshtml.cs" company="P33">
+// Copyright (c) P33. All rights reserved.
+// </copyright>
+
+using System.Linq;
 using System.Threading.Tasks;
 using AspNetSandbox.Dtos;
 using AspNetSandbox.Models;

@@ -1,4 +1,8 @@
-﻿using System;
+﻿// <copyright file="Index.cshtml.cs" company="P33">
+// Copyright (c) P33. All rights reserved.
+// </copyright>
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

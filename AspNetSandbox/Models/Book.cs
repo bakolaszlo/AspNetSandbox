@@ -1,5 +1,5 @@
-﻿// <copyright file="Book.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="Book.cs" company="P33">
+// Copyright (c) P33. All rights reserved.
 // </copyright>
 
 using System;

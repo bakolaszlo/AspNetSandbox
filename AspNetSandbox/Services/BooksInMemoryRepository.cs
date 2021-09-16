@@ -1,5 +1,5 @@
 ﻿// <copyright file="BooksService.cs" company="P33">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+// Copyright (c) P33. All rights reserved.
 // </copyright>
 
 namespace AspNetSandbox.Services

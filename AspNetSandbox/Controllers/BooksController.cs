@@ -1,5 +1,5 @@
 ﻿// <copyright file="BooksController.cs" company="P33">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+// Copyright (c) P33. All rights reserved.
 // </copyright>
 
 using System;
@@ -30,6 +30,7 @@ namespace AspNetSandbox
         /// </summary>
         /// <param name="repository"> Singleton Interface. </param>
         /// <param name="hubContext"> SignalR. </param>
+        /// <param name="mapper"> AutoMapper. </param>
         public BooksController(IBookRepository repository, IHubContext<MessageHub> hubContext, IMapper mapper)
         {
             this.repository = repository;
@@ -71,7 +72,6 @@ namespace AspNetSandbox
         [HttpPost]
         public IActionResult Post([FromBody] CreateBookDto bookDto)
         {
-
             if (ModelState.IsValid)
             {
                 Book book = mapper.Map<Book>(bookDto);

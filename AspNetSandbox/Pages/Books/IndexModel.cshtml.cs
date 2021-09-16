@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿// <copyright file="IndexModel.cshtml.cs" company="P33">
+// Copyright (c) P33. All rights reserved.
+// </copyright>
+
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AspNetSandbox.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;

@@ -1,4 +1,8 @@
-﻿using AspNetSandbox.Models;
+﻿// <copyright file="DbBooksRepository.cs" company="P33">
+// Copyright (c) P33. All rights reserved.
+// </copyright>
+
+using AspNetSandbox.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
