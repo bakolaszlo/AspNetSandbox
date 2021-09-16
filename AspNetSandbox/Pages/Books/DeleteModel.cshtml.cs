@@ -55,7 +55,7 @@ namespace AspNetSandbox.Pages.Shared
             if (Book != null)
             {
                 var mappedBook = mapper.Map<BookDto>(Book);
-                hubContext.Clients.All.SendAsync("BookRemoved", mappedBook);
+                await hubContext.Clients.All.SendAsync("BookRemoved", mappedBook);
                 this.context.Book.Remove(Book);
                 await this.context.SaveChangesAsync();
             }
