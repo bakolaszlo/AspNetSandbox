@@ -11,6 +11,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AspNetSandbox.Data
 {
+    /// <summary>
+    ///   <para>Db class.</para>
+    /// </summary>
     public class ApplicationDbContext : IdentityDbContext
     {
         /// <summary>
