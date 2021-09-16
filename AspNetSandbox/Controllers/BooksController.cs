@@ -40,7 +40,7 @@ namespace AspNetSandbox
         /// <summary>Gets the whole instance of books.</summary>
         /// <returns>IEnumerable for Book object.</returns>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
             var exposedRepository = repository.Get();
             var mappedRepository = mapper.Map<List<Book>, List<ReadBookDto>>(exposedRepository);
@@ -51,7 +51,7 @@ namespace AspNetSandbox
         /// <param name="id">The identifier.</param>
         /// <returns>Book object.</returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult> Get(int id)
+        public ActionResult Get(int id)
         {
             try
             {
@@ -68,7 +68,7 @@ namespace AspNetSandbox
         /// <summary>Add a new book.</summary>
         /// <param name="bookDto">The new Book.</param>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreateBookDto bookDto)
+        public IActionResult Post([FromBody] CreateBookDto bookDto)
         {
 
             if (ModelState.IsValid)
@@ -86,7 +86,7 @@ namespace AspNetSandbox
         /// <param name="id">The identifier.</param>
         /// <param name="updatedBook">New Book content.</param>
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] Book updatedBook)
+        public IActionResult Put(int id, [FromBody] Book updatedBook)
         {
             repository.UpdateBookById(id, updatedBook);
             return Ok();
@@ -95,7 +95,7 @@ namespace AspNetSandbox
         /// <summary>Deletes the specified Book by identifier.</summary>
         /// <param name="id">The identifier.</param>
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public IActionResult Delete(int id)
         {
             repository.RemoveBookById(id);
             return Ok();
