@@ -28,6 +28,6 @@ namespace AspNetSandbox.Models
         /// <value>The language.</value>
         public string Language { get; set; }
 
-        public decimal Price { get; set; }
+        public decimal PurchasePrice { get; set; }
     }
 }
