@@ -27,7 +27,6 @@ namespace AspNetSandbox.Pages
         /// <summary>Called when [get].</summary>
         public void OnGet()
         {
-
         }
     }
 }

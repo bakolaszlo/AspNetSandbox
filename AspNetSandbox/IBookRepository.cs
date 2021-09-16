@@ -1,4 +1,4 @@
-﻿// <copyright file="IBooksService.cs" company="P33">
+﻿// <copyright file="IBookRepository.cs" company="P33">
 // Copyright (c) P33. All rights reserved.
 // </copyright>
 
@@ -10,15 +10,15 @@ namespace AspNetSandbox
     /// <summary>Interface for Books.</summary>
     public interface IBookRepository
     {
+        /// <summary>Gets this instance.</summary>
+        /// <returns>
+        ///   <para>List of book.</para>
+        /// </returns>
         List<Book> Get();
+
         /// <summary>Removes the book by identifier.</summary>
         /// <param name="id">The identifier.</param>
         void RemoveBookById(int id);
-
-        /// <summary>Gets this instance.</summary>
-        /// <returns>
-        ///   <para>IEnumerable for type Book.</para>
-        /// </returns>
 
         /// <summary>Gets the specified book by identifier.</summary>
         /// <param name="id">The identifier.</param>
