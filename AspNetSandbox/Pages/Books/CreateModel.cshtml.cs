@@ -19,6 +19,10 @@ namespace AspNetSandbox.Pages.Shared
         private readonly IHubContext<MessageHub> hubContext;
         private readonly IMapper mapper;
 
+        /// <summary>Initializes a new instance of the <see cref="CreateModel" /> class.</summary>
+        /// <param name="context">The context.</param>
+        /// <param name="hubContext">The hub context.</param>
+        /// <param name="mapper">The mapper.</param>
         public CreateModel(AspNetSandbox.Data.ApplicationDbContext context, IHubContext<MessageHub> hubContext, IMapper mapper)
         {
             this.context = context;
@@ -26,6 +30,8 @@ namespace AspNetSandbox.Pages.Shared
             this.mapper = mapper;
         }
 
+        /// <summary>Gets or sets the book dto.</summary>
+        /// <value>The book dto.</value>
         [BindProperty]
         public CreateBookDto BookDto { get; set; }
 
@@ -35,12 +41,17 @@ namespace AspNetSandbox.Pages.Shared
         }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+        /// <summary>Called when [post asynchronous].</summary>
+        /// <returns>
+        ///   <br />
+        /// </returns>
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+
             Book book = mapper.Map<Book>(BookDto);
             this.context.Book.Add(book);
             await this.context.SaveChangesAsync();
