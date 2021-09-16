@@ -10,7 +10,7 @@ connection.start().then(function () {
 
 connection.on("BookCreated", function (book) {
     console.log("Book added: " + JSON.stringify(book));
-    $("tbody").append(`<tr>
+    $("tbody").append(`<tr id="${book.id}">
     <td>
             ${book.title}
     </td>
