@@ -1,4 +1,4 @@
-﻿// <copyright file="BooksService.cs" company="P33">
+﻿// <copyright file="BooksInMemoryRepository.cs" company="P33">
 // Copyright (c) P33. All rights reserved.
 // </copyright>
 
@@ -91,6 +91,8 @@ namespace AspNetSandbox.Services
             books.Remove(Get(id));
         }
 
+        /// <summary>Gets this instance.</summary>
+        /// <returns>List of book.</returns>
         public List<Book> Get()
         {
             return books;
