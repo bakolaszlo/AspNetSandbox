@@ -9,9 +9,14 @@ using System.Threading.Tasks;
 
 namespace AspNetSandbox.Dtos
 {
-    /// <summary>Book view when user creates one.</summary>
-    public class CreateBookDto
+
+    /// <summary>Book view when user reads one.</summary>
+    public class ReadBookDto
     {
+        /// <summary>Gets or sets the identifier.</summary>
+        /// <value>The identifier.</value>
+        public string Id { get; set; }
+
         /// <summary>Gets or sets the title.</summary>
         /// <value>The title.</value>
         public string Title { get; set; }
@@ -24,4 +29,5 @@ namespace AspNetSandbox.Dtos
         /// <value>The language.</value>
         public string Language { get; set; }
     }
+
 }
