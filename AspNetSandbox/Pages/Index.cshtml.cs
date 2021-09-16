@@ -12,15 +12,19 @@ using Microsoft.Extensions.Logging;
 
 namespace AspNetSandbox.Pages
 {
+    /// <summary>Index Page class.</summary>
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<IndexModel> logger;
 
+        /// <summary>Initializes a new instance of the <see cref="IndexModel" /> class.</summary>
+        /// <param name="logger">The logger.</param>
         public IndexModel(ILogger<IndexModel> logger)
         {
-            _logger = logger;
+            this.logger = logger;
         }
 
+        /// <summary>Called when [get].</summary>
         public void OnGet()
         {
 

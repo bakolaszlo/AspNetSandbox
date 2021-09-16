@@ -14,42 +14,42 @@ namespace AspNetSandbox.Services
 {
     public class DbBooksRepository : IBookRepository
     {
-        private readonly ApplicationDbContext _context; 
+        private readonly ApplicationDbContext context; 
 
         public DbBooksRepository(ApplicationDbContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         public void AddBook(Book newBook)
         {
-            _context.Add(newBook);
-            _context.SaveChanges();
+            context.Add(newBook);
+            context.SaveChanges();
         }
 
         public List<Book> Get()
         {
-            return _context.Book.ToList();
+            return context.Book.ToList();
         }
 
         public Book Get(int id)
         {
-            var book = _context.Book
+            var book = context.Book
                 .FirstOrDefault(m => m.Id == id);
             return book;
         }
 
         public void RemoveBookById(int id)
         {
-            var book = _context.Book.Find(id);
-            _context.Book.Remove(book);
-            _context.SaveChanges();
+            var book = context.Book.Find(id);
+            context.Book.Remove(book);
+            context.SaveChanges();
         }
 
         public void UpdateBookById(int id, Book newBook)
         {
-            _context.Update(newBook);
-            _context.SaveChanges();
+            context.Update(newBook);
+            context.SaveChanges();
         }
     }
 }
