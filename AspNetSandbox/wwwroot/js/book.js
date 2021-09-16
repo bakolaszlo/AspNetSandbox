@@ -21,10 +21,10 @@ connection.on("BookCreated", function (book) {
           ${book.language}
     </td>
     <td>
-    <a href="/Books/Edit?id=${book.id}">Edit</a>
-    <a href="/Books/Details?id=${book.id}">Details</a>
-    <a href="/Books/Delete?id=${book.id}">Delete</a>
-    </td>
+        <a href="/Books/Edit?id=${book.id}">Edit</a> |
+        <a href="/Books/Details?id=${book.id}">Details</a> |
+        <a href="/Books/Delete?id=${book.id}">Delete</a>
+      </td>
     </tr>
     `);
 });
