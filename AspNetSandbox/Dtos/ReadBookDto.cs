@@ -1,4 +1,4 @@
-﻿// <copyright file="BookDto.cs" company="P33">
+﻿// <copyright file="ReadBookDto.cs" company="P33">
 // Copyright (c) P33. All rights reserved.
 // </copyright>
 
@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace AspNetSandbox.Dtos
 {
-
     /// <summary>Book view when user reads one.</summary>
     public class ReadBookDto
     {
@@ -29,5 +28,4 @@ namespace AspNetSandbox.Dtos
         /// <value>The language.</value>
         public string Language { get; set; }
     }
-
 }
