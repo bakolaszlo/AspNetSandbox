@@ -39,8 +39,8 @@ namespace AspNetSandbox.Pages.Shared
             }
             Book book = mapper.Map<Book>(BookDto);
             this.context.Book.Add(book);
-            await hubContext.Clients.All.SendAsync("BookCreated", BookDto);
             await this.context.SaveChangesAsync();
+            await hubContext.Clients.All.SendAsync("BookCreated", BookDto);
 
             return RedirectToPage("./Index");
         }

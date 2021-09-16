@@ -57,9 +57,9 @@ namespace AspNetSandbox.Pages.Shared
 
             try
             {
+                await this.context.SaveChangesAsync();
                 var mappedBook = mapper.Map<BookDto>(Book);
                 await hubContext.Clients.All.SendAsync("BookEdited", mappedBook);
-                await this.context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
