@@ -42,7 +42,9 @@ namespace AspNetSandbox
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(repository.Get());
+            var exposedRepository = repository.Get();
+            var mappedRepository = mapper.Map<List<ReadBookDto>>(exposedRepository);
+            return Ok(mappedRepository);
         }
 
         /// <summary>Gets the specified Book by id.</summary>
@@ -54,7 +56,8 @@ namespace AspNetSandbox
             try
             {
                 var book = repository.Get(id);
-                return Ok(book);
+                var mapped = mapper.Map<ReadBookDto>(book);
+                return Ok(mapped);
             }
             catch
             {
@@ -65,7 +68,7 @@ namespace AspNetSandbox
         /// <summary>Add a new book.</summary>
         /// <param name="bookDto">The new Book.</param>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] BookDto bookDto)
+        public async Task<IActionResult> Post([FromBody] CreateBookDto bookDto)
         {
 
             if (ModelState.IsValid)

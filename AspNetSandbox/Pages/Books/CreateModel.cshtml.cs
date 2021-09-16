@@ -23,7 +23,7 @@ namespace AspNetSandbox.Pages.Shared
         }
 
         [BindProperty]
-        public BookDto BookDto { get; set; }
+        public CreateBookDto BookDto { get; set; }
 
         public IActionResult OnGet()
         {
