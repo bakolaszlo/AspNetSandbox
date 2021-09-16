@@ -15,13 +15,20 @@ namespace AspNetSandbox.Pages.Shared
     {
         private readonly AspNetSandbox.Data.ApplicationDbContext context;
 
+        /// <summary>Initializes a new instance of the <see cref="DetailsModel" /> class.</summary>
+        /// <param name="context">The context.</param>
         public DetailsModel(AspNetSandbox.Data.ApplicationDbContext context)
         {
             this.context = context;
         }
 
+        /// <summary>Gets or sets the book.</summary>
+        /// <value>The book.</value>
         public Book Book { get; set; }
 
+        /// <summary>Called when [get asynchronous].</summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>Action result.</returns>
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
