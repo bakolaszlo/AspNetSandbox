@@ -39,7 +39,7 @@ namespace AspNetSandbox
         }
 
         /// <summary>Gets the whole instance of books.</summary>
-        /// <returns>IEnumerable for Book object.</returns>
+        /// <returns>List of Book object.</returns>
         [HttpGet]
         public IActionResult Get()
         {
