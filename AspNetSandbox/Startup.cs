@@ -21,6 +21,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Npgsql;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Infrastructure;
 
 namespace AspNetSandbox
@@ -45,7 +46,6 @@ namespace AspNetSandbox
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(GetConnectionString()));
-            
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -75,12 +75,25 @@ namespace AspNetSandbox
                 return ConvertConnectionString(connectionString);
             }
 
-            return Configuration.GetConnectionString("DefaultConnection");
+            return Configuration.GetConnectionString("LocalConnection");
         }
 
-        private string ConvertConnectionString(string connectionString)
+        public static string ConvertConnectionString(string connectionString)
         {
-            throw new NotImplementedException();
+            var databaseUri = new Uri(connectionString);
+            var userInfo = databaseUri.UserInfo.Split(":");
+            var builder = new NpgsqlConnectionStringBuilder
+            {
+                Host = databaseUri.Host,
+                Port = databaseUri.Port,
+                Username = userInfo[0],
+                Password = userInfo[1],
+                Database = databaseUri.LocalPath.TrimStart('/'),
+                SslMode = SslMode.Require,
+                TrustServerCertificate = true,
+            };
+
+            return builder.ToString();
         }
 
         /// <summary>Configures the specified application.</summary>
@@ -119,6 +132,20 @@ namespace AspNetSandbox
             */
 
             app.UseStaticFiles();
+
+            using (var serviceScope = app.ApplicationServices.CreateScope())
+            {
+                var applicationDbContext = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
+                if (applicationDbContext.Book.Any())
+                {
+                    Console.WriteLine("The books are there");
+                }
+                else
+                {
+                    Console.WriteLine("No data.");
+                }
+            }
+
             app.UseRouting();
 
             app.UseAuthentication();
