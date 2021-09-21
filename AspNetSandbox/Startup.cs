@@ -149,7 +149,7 @@ namespace AspNetSandbox
                 endpoints.MapControllers();
                 endpoints.MapHub<MessageHub>("/messagehub");
             });
-            DataTools.SeedData(app);
+            app.SeedData();
         }
     }
 }
