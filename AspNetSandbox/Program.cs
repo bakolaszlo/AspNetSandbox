@@ -40,7 +40,7 @@ namespace AspNetSandbox
                            Console.WriteLine("Quick Start Example!");
                        }
 
-                       if (o.ConnectionString.Length > 0)
+                       if (o.ConnectionString != null)
                        {
                            Console.WriteLine($"Custom connection string set to: {o.ConnectionString}");
                            DataTools.CustomConnectionString = o.ConnectionString;
