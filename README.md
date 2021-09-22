@@ -6,6 +6,16 @@ language | C#
 database | Postgres
 deployed | [Heroku](https://asp-net-sandbox1.herokuapp.com/)
 
+# Images of running application
+
+Swagger:
+
+![image](https://user-images.githubusercontent.com/79322093/134395010-c9fe5d22-7132-4afb-8a8a-961febadb0c5.png)
+
+Application:
+
+![image](https://user-images.githubusercontent.com/79322093/134395057-c498c7c1-c112-4a6a-b977-03f096786eb3.png)
+
 ## How to run in Docker from the commandline
 
 Navigate to [AspNetSandbox](AspNetSandbox) directory
