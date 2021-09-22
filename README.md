@@ -4,7 +4,7 @@ name | value
 --- | ---
 language | C#
 database | Postgres
-deployed | [link](https://asp-net-sandbox1.herokuapp.com/ "Heroku")
+deployed | [Heroku](https://asp-net-sandbox1.herokuapp.com/)
 
 ## How to run in Docker from the commandline
 
