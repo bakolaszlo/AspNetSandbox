@@ -2,12 +2,12 @@
 // Copyright (c) P33. All rights reserved.
 // </copyright>
 
+using AspNetSandbox.Models;
+using AspNetSandbox.Services;
+using Xunit;
+
 namespace AspNetSandbox.Tests
 {
-    using AspNetSandbox.Models;
-    using AspNetSandbox.Services;
-    using Xunit;
-
     /// <summary>Testing class for the BooksService methods.</summary>
     public class BooksInMemoryRepositoryTests
     {

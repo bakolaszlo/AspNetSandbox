@@ -2,13 +2,13 @@
 // Copyright (c) P33. All rights reserved.
 // </copyright>
 
+using System;
+using System.IO;
+using AspNetSandbox.Controllers;
+using Xunit;
+
 namespace AspNetSandbox.Tests
 {
-    using System;
-    using System.IO;
-    using AspNetSandbox.Controllers;
-    using Xunit;
-
     /// <summary>Test units for WeatherForecastController.</summary>
     public class WeatherForecastControllerTest
     {

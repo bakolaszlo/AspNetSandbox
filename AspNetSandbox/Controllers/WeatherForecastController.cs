@@ -2,17 +2,17 @@
 // Copyright (c) P33. All rights reserved.
 // </copyright>
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
+using RestSharp;
+
 namespace AspNetSandbox.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using Newtonsoft.Json.Linq;
-    using RestSharp;
-
     /// <summary>
     /// The controller that allows us to get third party stuff.
     /// </summary>
