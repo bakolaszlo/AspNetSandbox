@@ -40,6 +40,27 @@ namespace AspNetSandbox
         /// <value>The configuration.</value>
         public IConfiguration Configuration { get; }
 
+        /// <summary>Converts the connection string.</summary>
+        /// <param name="connectionString">The connection string.</param>
+        /// <returns>The converted connection string.</returns>
+        public static string ConvertConnectionString(string connectionString)
+        {
+            var databaseUri = new Uri(connectionString);
+            var userInfo = databaseUri.UserInfo.Split(":");
+            var builder = new NpgsqlConnectionStringBuilder
+            {
+                Host = databaseUri.Host,
+                Port = databaseUri.Port,
+                Username = userInfo[0],
+                Password = userInfo[1],
+                Database = databaseUri.LocalPath.TrimStart('/'),
+                SslMode = SslMode.Require,
+                TrustServerCertificate = true,
+            };
+
+            return builder.ToString();
+        }
+
         /// <summary>Configures the services.</summary>
         /// <param name="services">The services.</param>
         public void ConfigureServices(IServiceCollection services)
@@ -65,35 +86,6 @@ namespace AspNetSandbox
             services.AddSignalR();
             services.AddScoped<IBookRepository, DbBooksRepository>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-        }
-
-        private string GetConnectionString()
-        {
-            var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
-            if (connectionString != null)
-            {
-                return ConvertConnectionString(connectionString);
-            }
-
-            return Configuration.GetConnectionString("LocalConnection");
-        }
-
-        public static string ConvertConnectionString(string connectionString)
-        {
-            var databaseUri = new Uri(connectionString);
-            var userInfo = databaseUri.UserInfo.Split(":");
-            var builder = new NpgsqlConnectionStringBuilder
-            {
-                Host = databaseUri.Host,
-                Port = databaseUri.Port,
-                Username = userInfo[0],
-                Password = userInfo[1],
-                Database = databaseUri.LocalPath.TrimStart('/'),
-                SslMode = SslMode.Require,
-                TrustServerCertificate = true,
-            };
-
-            return builder.ToString();
         }
 
         /// <summary>Configures the specified application.</summary>
@@ -148,6 +140,17 @@ namespace AspNetSandbox
                 endpoints.MapHub<MessageHub>("/messagehub");
             });
             app.SeedData();
+        }
+
+        private string GetConnectionString()
+        {
+            var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
+            if (connectionString != null)
+            {
+                return ConvertConnectionString(connectionString);
+            }
+
+            return Configuration.GetConnectionString("LocalConnection");
         }
     }
 }
