@@ -17,7 +17,6 @@
     },
     "AspNetSandbox": {
       "commandName": "Project",
-      "commandLineArgs": "-v",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

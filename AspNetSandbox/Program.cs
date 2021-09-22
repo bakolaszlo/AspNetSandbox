@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetSandbox.Data;
 using CommandLine;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,7 +26,7 @@ namespace AspNetSandbox
         /// <returns>The program exit code.</returns>
         public static int Main(string[] args)
         {
-            Parser.Default.ParseArguments<Options>(args)
+            var argsResult = Parser.Default.ParseArguments<Options>(args)
                    .WithParsed<Options>(o =>
                    {
                        if (o.Verbose)
@@ -38,7 +39,23 @@ namespace AspNetSandbox
                            Console.WriteLine($"Current Arguments: -v {o.Verbose}");
                            Console.WriteLine("Quick Start Example!");
                        }
+
+                       if (o.ConnectionString.Length > 0)
+                       {
+                           Console.WriteLine($"Custom connection string set to: {o.ConnectionString}");
+                           DataTools.CustomConnectionString = o.ConnectionString;
+                       }
+                       else
+                       {
+                           Console.WriteLine("Using the default connection string");
+                       }
+
                    });
+            if (argsResult.Tag == ParserResultType.NotParsed)
+            {
+                return 1;
+            }
+
             CreateHostBuilder(args).Build().Run();
             return 0;
         }
@@ -69,6 +86,9 @@ namespace AspNetSandbox
             ///   <c>true</c> if verbose; otherwise, <c>false</c>.</value>
             [Option('v', "verbose", Required = false, HelpText = "Set output to verbose messages.")]
             public bool Verbose { get; set; }
+
+            [Option('c', "connection-string", Required = false, HelpText = "Set's custom connection string to connect to.")]
+            public string ConnectionString { get; set; }
         }
     }
 }

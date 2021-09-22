@@ -144,6 +144,29 @@ namespace AspNetSandbox
 
         private string GetConnectionString()
         {
+            if (DataTools.CustomConnectionString != null)
+            {
+                try
+                {
+                    return ConvertConnectionString(DataTools.CustomConnectionString);
+                }
+                catch
+                {
+                    Console.WriteLine("An error occured while trying to convert your connection string.");
+                    Console.WriteLine("Are you using already converted connection string? [y/n]");
+                    var input = Console.ReadLine();
+                    if (input == "y")
+                    {
+                        Console.WriteLine("Using it as convert connection string.");
+                        return DataTools.CustomConnectionString;
+                    }
+                    else
+                    {
+                        System.Environment.FailFast("No valid connection string was given, but was prompted.");
+                    }
+                }
+            }
+
             var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
             if (connectionString != null)
             {

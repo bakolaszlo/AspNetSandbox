@@ -17,6 +17,7 @@ namespace AspNetSandbox.Data
     /// </summary>
     public static class DataTools
     {
+        public static string CustomConnectionString = null;
         /// <summary>Seeds the data.</summary>
         /// <param name="app">The application.</param>
         public static void SeedData(this IApplicationBuilder app)
