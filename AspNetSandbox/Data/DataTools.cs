@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿ using AspNetSandbox.Models;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,20 @@ namespace AspNetSandbox.Data
                 }
                 else
                 {
-                    Console.WriteLine("No data.");
+                    applicationDbContext.Add(new Book
+                    {
+                        Title = "Az isteni formula",
+                        Language = "Hungarian",
+                        Author = "José Rodrigues dos Santos",
+                    });
+                    applicationDbContext.Add(new Book
+                    {
+                        Title = "The Big Bang",
+                        Language = "Hungarian",
+                        Author = "I dunno",
+                    });
+                    applicationDbContext.SaveChanges();
+                    Console.WriteLine(applicationDbContext.Book.ToList()[0].Title);
                 }
             }
         }

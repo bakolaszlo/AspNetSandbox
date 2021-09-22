@@ -133,8 +133,6 @@ namespace AspNetSandbox
 
             app.UseStaticFiles();
 
-            
-
             app.UseRouting();
 
             app.UseAuthentication();
