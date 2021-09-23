@@ -1,4 +1,8 @@
-﻿using System;
+﻿// <copyright file="FileOperationWithBooksTests.cs" company="P33">
+// Copyright (c) P33. All rights reserved.
+// </copyright>
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,8 +12,10 @@ using Xunit;
 
 namespace AspNetSandbox.Tests
 {
+    /// <summary>File operations tests.</summary>
     public class FileOperationWithBooksTests
     {
+        /// <summary>Enumerates the file test.</summary>
         [Fact]
         public void EnumerateFileTest()
         {
@@ -21,6 +27,7 @@ namespace AspNetSandbox.Tests
             }
         }
 
+        /// <summary>Creates the file test.</summary>
         [Fact]
         public void CreateFileTest()
         {
@@ -43,6 +50,7 @@ namespace AspNetSandbox.Tests
 ");
         }
 
+        /// <summary>Reads the file test.</summary>
         [Fact]
         public void ReadFileTest()
         {

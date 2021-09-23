@@ -20,7 +20,6 @@ namespace AspNetSandbox
     /// </summary>
     public class Program
     {
-
         /// <summary>Defines the entry point of the application.</summary>
         /// <param name="args">The arguments.</param>
         /// <returns>The program exit code.</returns>
@@ -49,7 +48,6 @@ namespace AspNetSandbox
                        {
                            Console.WriteLine("Using the default connection string");
                        }
-
                    });
             if (argsResult.Tag == ParserResultType.NotParsed)
             {
@@ -73,12 +71,11 @@ namespace AspNetSandbox
                 });
 
         /// <summary>
-        ///   <para>Class from CommandLineParser</para>
+        ///   <para>Class from CommandLineParser.</para>
         ///   <para>
         ///     <font color="#333333">Makes the cmd verbose.</font>
         ///   </para>
         /// </summary>
-
         public class Options
         {
             /// <summary>Gets or sets a value indicating whether this <see cref="Options" /> is verbose.</summary>
@@ -87,6 +84,8 @@ namespace AspNetSandbox
             [Option('v', "verbose", Required = false, HelpText = "Set output to verbose messages.")]
             public bool Verbose { get; set; }
 
+            /// <summary>Gets or sets the connection string.</summary>
+            /// <value>The connection string.</value>
             [Option('c', "connection-string", Required = false, HelpText = "Set's custom connection string to connect to.")]
             public string ConnectionString { get; set; }
         }

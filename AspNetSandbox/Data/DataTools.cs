@@ -17,7 +17,11 @@ namespace AspNetSandbox.Data
     /// </summary>
     public static class DataTools
     {
+        /// <summary>The custom connection string.</summary>
+#pragma warning disable SA1401 // Fields should be private
         public static string CustomConnectionString = null;
+#pragma warning restore SA1401 // Fields should be private
+
         /// <summary>Seeds the data.</summary>
         /// <param name="app">The application.</param>
         public static void SeedData(this IApplicationBuilder app)
